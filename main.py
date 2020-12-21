@@ -226,7 +226,7 @@ async def on_message(message):
 
 
 
-bot.run('token')
+bot.run('Nzg5ODc3MDU3MTAxODg5NTU2.X94cVQ.BLmec4Qn4VdBGVu-6A45HLMnpgE')
 
 
 
