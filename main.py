@@ -226,7 +226,7 @@ async def on_message(message):
 
 
 
-bot.run('DISCORD_BOT_TOKEN')
+bot.run('Nzg5ODc3MDU3MTAxODg5NTU2.X94cVQ.M789hsDAz4MPyHhB3Tlnr1PS4EQ')
 
 
 
