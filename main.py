@@ -71,38 +71,23 @@ async def on_message(message):
             await message.channel.send(embed = piroEmbed)
 
 
-    if cmd.startswith('bro trigger '):
-        mention = cmdl[2]
+    if cmd.startswith('bro rip '):                      
+        mention = cmdl[2]                                   
         mention = mention.replace("<", '')
         mention = mention.replace(">", '')
         mention = mention.replace("!", '')
         mention = mention.replace("@", '')
         g = bot.get_user(int(mention))
-        """ usr = message.channel.get_user(w) """
         dp = g.avatar_url
-        dp = str(dp).replace('webp', 'jpg')
+        dp = str(dp).replace('webp', 'gif')
         dp = str(dp).replace('?size=1024', '')
-        triggered  = 'https://some-random-api.ml/canvas/triggered?avatar=' + str(dp)
-        print(dp)
+        imgurl = 'https://some-random-api.ml/canvas/wasted?avatar=' + str(dp)
+        embed = discord.Embed(title=mention, value=' IS WASTED !!', inline=False)
+        embed.set_image(url=imgurl)
+        """embed.set_image(url=imgurl)"""
+        print(imgurl)
+        await message.channel.send(embed=embed)
 
-
-        image_url = triggered
-        filename = 'triggered.gif'
-
-        r = requests.get(image_url, stream = True)
-
-        if r.status_code == 200:
-            r.raw.decode_content = True
-            
-            with open(filename,'wb') as f:
-                shutil.copyfileobj(r.raw, f)
-                
-            print('Image sucessfully Downloaded: ',filename)
-        else:
-            print('Image Couldn\'t be retreived')
-
-        """ str(filename).replace('.jpg', '.gif') """
-        await message.channel.send(file=discord.File(filename))
 
     if cmd.startswith('love% of '):
         m = cmdl[2]
