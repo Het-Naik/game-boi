@@ -22,7 +22,7 @@ async def on_message(message):
             return
     myid = '<@!758921556385726494>'
     botid = '<@!789877057101889556>'
-    alleniteid = '<@!789204472680284202>'
+    alleniteid = '<@!789204472680284202>' # Not being used in the program.
     
     if cmd.startswith('piro rate '):
         if cmdl[2] == myid or cmdl[2] == botid:
@@ -38,18 +38,6 @@ async def on_message(message):
         
 
         elif str(pirorate) < '20':
-            """ mention = cmdl[2]
-            mention = mention.replace("<", '')
-            mention = mention.replace(">", '')
-            mention = mention.replace("!", '')
-            mention = mention.replace("@", '')
-            g = bot.get_user(int(mention))
-            piroEmbed = discord.Embed(title='PIRO RATE OF ', value = str(g) , color=0x00FF00)
-            piroEmbed.add_field(name=str(g) , value=' is ' + str(pirorate) + ' % piro' , inline = False)
-            await message.channel.send(embed = piroEmbed)
-             """
-
-
             mention = cmdl[2]
             mention = mention.replace("<", '')
             mention = mention.replace(">", '')
@@ -84,10 +72,8 @@ async def on_message(message):
         imgurl = 'https://some-random-api.ml/canvas/wasted?avatar=' + str(dp)
         embed = discord.Embed(title=mention, value=' IS WASTED !!', inline=False)
         embed.set_image(url=imgurl)
-        """embed.set_image(url=imgurl)"""
         print(imgurl)
         await message.channel.send(embed=embed)
-
 
     if cmd.startswith('love% of '):
         m = cmdl[2]
@@ -147,7 +133,6 @@ async def on_message(message):
             piroEmbed.add_field(name=str(g) + ' is 100 % sexy ', value=':wink:', inline = False)
             await message.channel.send(embed = piroEmbed)
         elif str(pirorate) < '20':
-            
             mention = cmdl[2]
             mention = mention.replace("<", '')
             mention = mention.replace(">", '')
@@ -181,45 +166,21 @@ async def on_message(message):
             def is_correct(m):
                 return m.author == message.author and m.content.isdigit()
 
-
             print(answer)
-
             guess = await bot.wait_for('message', check = is_correct)
-
-            # except asyncio.TimeoutError:
-            #     return await message.channel.send('Sorry, you took too long it was {}.'.format(answer))
 
             ans = False
             for s in range(3):
                 if int(guess.content) == answer:
                     ans = True
                     break
-                else:
-                    ans = False
+            
             if ans == True:
                 ans = 'you are right !'
             elif ans == False:
                 ans = 'you are wrong :('
             await message.channel.send(ans)
 
-        await message.channel.send('It is {}.'.format(answer))
-
-
-    # if message.content == 'F' or message.content == 'f':
-    #     await message.channel.send('F')
-
-
-
+        await message.channel.send(f'It is {answer}.')
 
 bot.run('token')
-
-
-
-""" piroEmbed = discord.Embed(title='PIRO RATE OF ' + 'cmdl[2]', color=0xFFFFFF)
-piroEmbed.add_field(name="cmdl[2] + ' is ' + str(pirorate) + ' % sexy '", inline=False)
-piroEmbed.add_field(name='CLASS1 :', value='MATHS --> SARTHAK SIR\nTIME : 2:30m to 4:30pm', inline=False)
-piroEmbed.add_field(name='CLASS2 :', value='CHEMISTRY --> DR.KIRTI KUMAR SHAH SIR\nTIME : 4:50pm to 6:50pm', inline=False)
-piroEmbed.add_field(name='BREAK :', value='20 MINUTES BREAK WOOHOO', inline=False)
-piroEmbed.add_field(name='XTRA-CLASS :', value='MATHS --> SARTHAK SIR\nTIME : 1:45pm to 2:30pm', inline=False)
-"""
-
